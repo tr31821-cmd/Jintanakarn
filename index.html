@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="E-Portfolio ครูผู้สอนด้านเทคโนโลยีและการเขียนโปรแกรม">
+  <title>E-Portfolio | Technology Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root{--primary:#2563eb;--dark:#102a56;--light:#eff6ff;--white:#fff;--text:#334155;--muted:#64748b}
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+    body{font-family:'Prompt',sans-serif;color:var(--text);background:#f8fbff;line-height:1.8}
+    a{text-decoration:none;color:inherit}
+    .container{width:90%;max-width:1150px;margin:auto}
+    header{background:rgba(255,255,255,.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:1000;box-shadow:0 2px 15px rgba(0,0,0,.05)}
+    nav{height:75px;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:21px;font-weight:700;color:var(--dark)}.logo span{color:var(--primary)}
+    .nav-links{display:flex;list-style:none;gap:30px}.nav-links a{font-size:14px;font-weight:500;transition:.3s}.nav-links a:hover{color:var(--primary)}
+    .menu-btn{display:none;font-size:24px;color:var(--dark);background:none;border:0;cursor:pointer}
+    .hero{background:linear-gradient(135deg,#102a56,#2563eb);color:white;padding:110px 0;overflow:hidden}
+    .hero-content{display:flex;justify-content:space-between;align-items:center;gap:40px}.hero-text{max-width:650px}
+    .hero-tag{display:inline-block;padding:7px 18px;border:1px solid rgba(255,255,255,.4);border-radius:30px;font-size:13px;margin-bottom:20px}
+    .hero h1{font-size:clamp(30px,5vw,48px);line-height:1.5;margin-bottom:15px}.hero h1 span{color:#93c5fd}
+    .hero p{color:#dbeafe;margin-bottom:30px;font-weight:300}
+    .hero-icon{width:250px;height:250px;flex-shrink:0;border-radius:50%;background:rgba(255,255,255,.12);display:flex;justify-content:center;align-items:center;font-size:110px;color:#dbeafe;border:2px solid rgba(255,255,255,.3)}
+    .btn{display:inline-block;padding:12px 25px;border-radius:8px;font-size:14px;font-weight:500;transition:.3s;margin:5px 5px 5px 0}
+    .btn-white{background:white;color:var(--primary)}.btn-outline{border:1px solid white;color:white}.btn:hover{transform:translateY(-3px);opacity:.9}
+    section{padding:85px 0;scroll-margin-top:75px}
+    .section-title{text-align:center;margin-bottom:45px}.section-title small{color:var(--primary);font-weight:600;letter-spacing:2px}
+    .section-title h2{font-size:30px;color:var(--dark);margin:8px 0}.section-title p{color:var(--muted);font-size:14px}
+    .about{display:grid;grid-template-columns:1fr 1.5fr;gap:50px;align-items:center}
+    .about-image{height:330px;border-radius:20px;background:linear-gradient(135deg,#dbeafe,#93c5fd);display:flex;justify-content:center;align-items:center;color:var(--primary);font-size:100px}
+    .about-info h3{color:var(--dark);font-size:24px;margin-bottom:15px}.about-info p{color:var(--muted);margin-bottom:15px;font-size:14px}
+    .info-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.info-item{background:var(--light);padding:12px;border-radius:8px;font-size:13px}.info-item i{color:var(--primary);margin-right:7px}
+    .skills,.activities{background:white}.skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .skill-card{background:#f8fbff;border:1px solid #e2e8f0;border-radius:14px;padding:25px 15px;text-align:center;transition:.3s}
+    .skill-card:hover{transform:translateY(-6px);box-shadow:0 10px 25px rgba(37,99,235,.1)}
+    .skill-card i{font-size:35px;color:var(--primary);margin-bottom:12px}.skill-card h3{color:var(--dark);font-size:16px}.skill-card p{color:var(--muted);font-size:12px}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+    .portfolio-card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.05);transition:.3s;border:1px solid #e2e8f0}
+    .portfolio-card:hover{transform:translateY(-7px);box-shadow:0 12px 30px rgba(37,99,235,.12)}
+    .portfolio-img{height:180px;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#dbeafe,#bfdbfe);color:var(--primary);font-size:65px}
+    .portfolio-info{padding:22px}.portfolio-info h3{font-size:17px;color:var(--dark);margin-bottom:8px}
+    .portfolio-info p{color:var(--muted);font-size:13px;min-height:55px}.project-link{display:inline-block;margin-top:15px;color:var(--primary);font-size:13px;font-weight:600}
+    .project-link:hover{text-decoration:underline}.activity-list{max-width:800px;margin:auto}
+    .activity{display:flex;gap:25px;padding:25px;margin-bottom:20px;border-radius:12px;background:#f8fbff;border-left:4px solid var(--primary)}
+    .activity-icon{min-width:55px;height:55px;border-radius:12px;background:#dbeafe;color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:24px}
+    .activity h3{font-size:17px;color:var(--dark)}.activity p{font-size:13px;color:var(--muted)}
+    footer{background:var(--dark);color:white;padding:50px 0 20px}.footer-content{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:35px}
+    footer h3{margin-bottom:12px}footer p,footer a{color:#cbd5e1;font-size:13px}.social-links{display:flex;gap:18px;margin-top:15px}
+    .social-links a{font-size:22px;transition:.3s}.social-links a:hover{color:#93c5fd}
+    .copyright{text-align:center;border-top:1px solid #334b70;padding-top:20px;font-size:12px;color:#94a3b8}
+    .back-top{position:fixed;right:25px;bottom:25px;width:45px;height:45px;background:var(--primary);color:white;border:0;border-radius:50%;cursor:pointer;display:none;z-index:999;font-size:18px}
+    .back-top.show{display:block}
+    @media(max-width:768px){
+      .menu-btn{display:block}.nav-links{display:none;position:absolute;top:75px;left:0;width:100%;background:white;flex-direction:column;gap:0;padding:10px 5%;box-shadow:0 5px 10px rgba(0,0,0,.08)}
+      .nav-links.active{display:flex}.nav-links li a{display:block;padding:12px}
+      .hero{padding:70px 0}.hero-content{flex-direction:column-reverse;text-align:center}.hero-icon{width:170px;height:170px;font-size:75px}
+      .about{grid-template-columns:1fr;gap:25px}.about-image{height:220px}.skill-grid{grid-template-columns:repeat(2,1fr)}
+      .portfolio-grid{grid-template-columns:1fr}.info-list{grid-template-columns:1fr}section{padding:60px 0}.section-title h2{font-size:25px}
+    }
+    @media(max-width:400px){.skill-grid{grid-template-columns:1fr 1fr}.activity{padding:15px;gap:12px}}
+  </style>
+</head>
+<body>
+<header><div class="container"><nav>
+  <a href="#home" class="logo">TECH<span>PORT</span>.</a>
+  <button class="menu-btn" id="menuBtn" aria-label="เปิดเมนู" aria-expanded="false"><i class="fas fa-bars"></i></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">หน้าแรก</a></li><li><a href="#about">แนะนำตัว</a></li><li><a href="#portfolio">ผลงาน</a></li><li><a href="#activities">กิจกรรม</a></li>
+  </ul>
+</nav></div></header>
+
+<section class="hero" id="home"><div class="container hero-content">
+  <div class="hero-text">
+    <span class="hero-tag">TECHNOLOGY &amp; PROGRAMMING</span>
+    <h1>สวัสดีครับ<br>ผมคือ <span>ครูผู้สอนด้านเทคโนโลยี</span></h1>
+    <p>มุ่งมั่นพัฒนาการเรียนรู้ด้านเทคโนโลยี ส่งเสริมความคิดสร้างสรรค์ และพัฒนาทักษะการเขียนโปรแกรมให้กับผู้เรียน</p>
+    <a href="#portfolio" class="btn btn-white"><i class="fas fa-folder-open"></i> ดูผลงาน</a>
+    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+  </div>
+  <div class="hero-icon"><i class="fas fa-laptop-code"></i></div>
+</div></section>
+
+<section id="about"><div class="container">
+  <div class="section-title"><small>ABOUT ME</small><h2>แนะนำตัว</h2><p>ทำความรู้จักกับผู้สอนและแนวทางการจัดการเรียนรู้</p></div>
+  <div class="about">
+    <div class="about-image"><i class="fas fa-user-tie"></i></div>
+    <div class="about-info">
+      <h3>ครู [ชื่อ-นามสกุล]</h3>
+      <p>สวัสดีครับ ผมเป็นครูผู้สอนด้านเทคโนโลยีและการเขียนโปรแกรม มีความสนใจในการนำเทคโนโลยีมาประยุกต์ใช้กับการศึกษา เพื่อพัฒนาศักยภาพของผู้เรียน</p>
+      <p>เชื่อว่าการเรียนรู้ที่ดีไม่ได้เกิดจากการท่องจำ แต่เกิดจากการลงมือปฏิบัติ การทดลอง และการสร้างสรรค์ผลงานด้วยตนเอง</p>
+      <div class="info-list">
+        <div class="info-item"><i class="fas fa-user"></i> ชื่อ: [ชื่อครู]</div>
+        <div class="info-item"><i class="fas fa-graduation-cap"></i> วุฒิการศึกษา: [ระบุข้อมูล]</div>
+        <div class="info-item"><i class="fas fa-chalkboard-teacher"></i> สาขา: เทคโนโลยี</div>
+        <div class="info-item"><i class="fas fa-code"></i> ความถนัด: Programming</div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="skills"><div class="container">
+  <div class="section-title"><small>MY EXPERTISE</small><h2>ความเชี่ยวชาญ</h2><p>ทักษะและความสามารถด้านเทคโนโลยี</p></div>
+  <div class="skill-grid">
+    <div class="skill-card"><i class="fab fa-html5"></i><h3>HTML &amp; CSS</h3><p>การพัฒนาเว็บไซต์</p></div>
+    <div class="skill-card"><i class="fab fa-js"></i><h3>JavaScript</h3><p>การเขียนโปรแกรม</p></div>
+    <div class="skill-card"><i class="fas fa-laptop-code"></i><h3>Web Design</h3><p>การออกแบบเว็บไซต์</p></div>
+    <div class="skill-card"><i class="fas fa-robot"></i><h3>Technology</h3><p>เทคโนโลยีและนวัตกรรม</p></div>
+  </div>
+</div></section>
+
+<section id="portfolio"><div class="container">
+  <div class="section-title"><small>MY PORTFOLIO</small><h2>ผลงานของฉัน</h2><p>ตัวอย่างผลงานด้านการสอนและการพัฒนาเทคโนโลยี</p></div>
+  <div class="portfolio-grid">
+    <article class="portfolio-card"><div class="portfolio-img"><i class="fas fa-globe"></i></div><div class="portfolio-info">
+      <h3>เว็บไซต์เพื่อการเรียนรู้</h3><p>สร้างเว็บไซต์สำหรับเผยแพร่ความรู้และสนับสนุนการเรียนการสอนด้วย HTML และ CSS</p>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> ดูผลงานบน GitHub →</a>
+    </div></article>
+    <article class="portfolio-card"><div class="portfolio-img"><i class="fas fa-code"></i></div><div class="portfolio-info">
+      <h3>โปรเจกต์การเขียนโปรแกรม</h3><p>พัฒนาโปรแกรมเพื่อฝึกทักษะการคิดวิเคราะห์และแก้ปัญหาด้วยกระบวนการเขียนโปรแกรม</p>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> ดูผลงานบน GitHub →</a>
+    </div></article>
+    <article class="portfolio-card"><div class="portfolio-img"><i class="fas fa-book-open"></i></div><div class="portfolio-info">
+      <h3>สื่อการเรียนรู้ดิจิทัล</h3><p>ออกแบบสื่อการเรียนรู้เพื่อช่วยให้ผู้เรียนเข้าใจเนื้อหาด้านเทคโนโลยีได้ง่ายและสนุกมากขึ้น</p>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> ดูผลงานบน GitHub →</a>
+    </div></article>
+  </div>
+</div></section>
+
+<section class="activities" id="activities"><div class="container">
+  <div class="section-title"><small>MY ACTIVITIES</small><h2>กิจกรรมและประสบการณ์</h2><p>กิจกรรมที่เกี่ยวข้องกับการเรียนการสอนและเทคโนโลยี</p></div>
+  <div class="activity-list">
+    <div class="activity"><div class="activity-icon"><i class="fas fa-chalkboard"></i></div><div><h3>กิจกรรมการจัดการเรียนรู้</h3><p>จัดกิจกรรมการเรียนการสอนด้านเทคโนโลยีและส่งเสริมให้ผู้เรียนลงมือปฏิบัติจริง</p></div></div>
+    <div class="activity"><div class="activity-icon"><i class="fas fa-laptop"></i></div><div><h3>กิจกรรมอบรมด้านดิจิทัล</h3><p>ส่งเสริมความรู้และทักษะด้านดิจิทัลเพื่อเตรียมความพร้อมสู่โลกยุคใหม่</p></div></div>
+    <div class="activity"><div class="activity-icon"><i class="fas fa-lightbulb"></i></div><div><h3>กิจกรรมสร้างสรรค์นวัตกรรม</h3><p>สนับสนุนการคิดค้นและพัฒนาผลงานโดยใช้เทคโนโลยีเป็นเครื่องมือ</p></div></div>
+  </div>
+</div></section>
+
+<footer><div class="container">
+  <div class="footer-content">
+    <div><h3>TECH PORTFOLIO</h3><p>E-Portfolio สำหรับครูผู้สอน<br>ด้านเทคโนโลยีและการเขียนโปรแกรม</p></div>
+    <div><h3>ติดต่อ</h3><p><i class="fas fa-envelope"></i> teacher@example.com</p><p><i class="fas fa-school"></i> [ชื่อสถานศึกษา]</p>
+      <div class="social-links">
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="mailto:teacher@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">© 2026 Teacher E-Portfolio | Designed with HTML, CSS &amp; JavaScript</div>
+</div></footer>
+
+<button class="back-top" id="backTop" aria-label="กลับขึ้นด้านบน"><i class="fas fa-arrow-up"></i></button>
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('active');
+    menuBtn.setAttribute('aria-expanded', isOpen);
+    menuBtn.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+  });
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+  });
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    backTop.classList.toggle('show', window.scrollY > 300);
+  });
+  backTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>
